@@ -20,7 +20,7 @@ export const CharacterDescription: FC<IProps> = ({ classToValue, title, value })
   return (
     <li className='character__description'>
       <span className='character__description--title'>{title}:</span>
-      <span className={classesToValue}>{renderedValue}</span>
+      <span className={classesToValue} title={renderedValue}>{renderedValue}</span>
     </li>
   )
 }

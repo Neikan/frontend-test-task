@@ -61,3 +61,11 @@
   border-radius: 50%;
   border: 1px solid var(--primary-500);
 }
+
+@media (min-width: $wd) {
+  .character__description--value {
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: clip;
+  }
+}
