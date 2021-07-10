@@ -1,0 +1,43 @@
+@mixin make-scrollbar(
+  $name,
+  $width,
+  $border-radius,
+  $track-color,
+  $track-border,
+  $thumb-color,
+  $thumb-color-hover,
+  $thumb-border: transparent,
+  $thumb-border-hover: transparent,
+  $background: transparent
+) {
+  .#{$name} {
+    scrollbar-width: thin;
+    scrollbar-color: $thumb-color $track-color;
+
+    &::-webkit-scrollbar {
+      width: $width;
+      background-color: $background;
+
+      &:horizontal {
+        height: $width;
+      }
+    }
+
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 12px 12px $track-color;
+      border: solid 4px $track-border;
+      border-radius: $border-radius;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      box-shadow: inset 0 0 12px 12px $thumb-color;
+      border: solid 4px $thumb-border;
+      border-radius: $border-radius;
+
+      &:hover {
+        box-shadow: inset 0 0 12px 12px $thumb-color-hover;
+        border: solid 4px $thumb-border-hover;
+      }
+    }
+  }
+}

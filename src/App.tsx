@@ -1,9 +1,12 @@
-import React, { FC, Suspense } from 'react'
+import React, { FC } from 'react'
+
+import { Layout } from '@components/common'
+import { Characters } from '@components/views'
 
 const App: FC = () => (
-  <Suspense fallback={null}>
-    <div>Здесь будут данные</div>
-  </Suspense>
+  <Layout>
+    <Characters />
+  </Layout>
 )
 
 export default App
