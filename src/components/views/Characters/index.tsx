@@ -15,7 +15,7 @@ const initialState: IState = {
 }
 
 export class Characters extends Component<{}, IState> {
-  constructor(props: {}) {
+  constructor (props: {}) {
     super(props)
 
     this.state = { ...initialState }

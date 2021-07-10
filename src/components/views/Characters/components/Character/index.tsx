@@ -1,18 +1,20 @@
-import React, { FC }  from 'react'
-
-import { CharacterDescription } from './components/CharacterDescription'
+import React, { FC } from 'react'
 
 import { CharacterStatusClass } from '@consts/common'
 
+import { ButtonToFavorite } from '@components/common'
+import { CharacterDescription } from './components/CharacterDescription'
+
 import { ICharacterProps as IProps } from './types'
 
-export const Character: FC<IProps> = ({ character: {  gender, image, location, name, origin, species, status, type } }) => {
-
+export const Character: FC<IProps> = ({
+  character: { gender, image, location, name, origin, species, status, type }
+}) => {
   return (
     <li className='characters__item character'>
-      <div className='character__info character__info-first'>
+      <div className='character__info character__info--first'>
         <span className='character__name'>{name}</span>
-        <span className='character__chosen'>Chosen</span>
+        <ButtonToFavorite classes='character__toFavorite' isActive onClick={() => null} />
       </div>
 
       <div className='character__info character__info--second'>

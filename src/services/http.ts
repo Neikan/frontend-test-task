@@ -37,11 +37,7 @@ class Http {
     }
   }
 
-  async get (
-    url: string,
-    config: AxiosRequestConfig = {},
-    type: ResponseType = ResponseTypes.JSON
-  ): Promise<any> {
+  async get (url: string, config: AxiosRequestConfig = {}, type: ResponseType = ResponseTypes.JSON): Promise<any> {
     this.setHeaders(config)
 
     return await this.axiosInstance(type)?.get(url, config)

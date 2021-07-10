@@ -1,0 +1,36 @@
+.button {
+  @extend .tapNone;
+  @extend .outlineNone;
+
+  padding: 0;
+
+  background: none;
+  border: none;
+  transition: var(--transition-time-base);
+
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.button:hover svg,
+.button:focus svg {
+  fill: var(--primary-200);
+}
+
+.button:active svg {
+  fill: var(--primary-400);
+}
+
+.button--active svg {
+  fill: var(--primary-500);
+}
+
+.button__toFavorite {
+  display: block;
+  width: $width--character__toFavorite;
+  height: $width--character__toFavorite;
+
+  border-color: var(--primary-500);
+  stroke: var(--primary-500);
+}

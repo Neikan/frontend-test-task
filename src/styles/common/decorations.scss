@@ -5,8 +5,12 @@
   padding-left: 0;
 }
 
-.tap-none {
+.tapNone {
   -webkit-tap-highlight-color: transparent;
+}
+
+.outlineNone {
+  outline: none;
 }
 
 @include make-scrollbar(

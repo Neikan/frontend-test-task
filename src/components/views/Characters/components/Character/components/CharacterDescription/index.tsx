@@ -8,9 +8,13 @@ import { ICharacterDescriptionProps as IProps } from './types'
 export const CharacterDescription: FC<IProps> = ({ classToValue, title, value }) => {
   const isNotValue = !value || value === UNKNOWN_VALUE
 
-  const classesToValue = cn('character__description--value', {
-    'value--unknown': isNotValue
-  }, classToValue)
+  const classesToValue = cn(
+    'character__description--value',
+    {
+      'value--unknown': isNotValue
+    },
+    classToValue
+  )
   const renderedValue = isNotValue ? Chars.QUESTIONS : value
 
   return (

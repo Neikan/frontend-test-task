@@ -1,3 +1,3 @@
 export default {
-  characters: 'character?page=33'
+  characters: 'character'
 }

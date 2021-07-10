@@ -12,9 +12,9 @@ export const LayoutContent: FC<IProps> = ({ children, classes = '', isScrollable
   const getClasses = (classes: string): string =>
     cn(
       'layout__content',
-      !isScrollable && 'layout__content--not_scrollbar',
+      !isScrollable && 'layout__content--notScrollbar',
       isScrollable && isFireFox && 'layout__content--firefox',
-      isScrollable && !isFireFox && 'layout__content--not_firefox',
+      isScrollable && !isFireFox && 'layout__content--notFirefox',
       isScrollable && 'layout__content--scrollbar',
       classes
     )

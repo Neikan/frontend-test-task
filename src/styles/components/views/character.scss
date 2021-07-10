@@ -8,10 +8,11 @@
   margin-bottom: var(--space-4);
 }
 
-.character__info-first {
+.character__info--first {
   @extend .grid--space_4;
 
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr $width--character__toFavorite;
+  align-items: center;
   margin-bottom: var(--space-4);
 }
 
@@ -24,10 +25,6 @@
 
 .character__name {
   font-weight: 600;
-}
-
-.character__chosen {
-  text-align: right;
 }
 
 .character__list {
