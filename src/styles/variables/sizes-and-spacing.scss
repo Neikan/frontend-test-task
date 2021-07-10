@@ -10,8 +10,9 @@ $border--radius__base: 4px;
 $width--content__scrollbar: 4px;
 $width--character: 18.5rem;
 $width--character__image: 9rem;
-$width--character__toFavorite: 1.5rem;
 $width--character__description--title: 3.5rem;
+$width--icon: 1.5rem;
+$width--page: 3rem;
 
 // Высота с учетом отступов
 $height--layout: calc(100vh - (var(--space-4) * 2));
@@ -19,5 +20,8 @@ $height--layout: calc(100vh - (var(--space-4) * 2));
 // Высота заголовка представления
 $height--layout__title: 2.25rem;
 
+// Высота области пагинации
+$height--pagination: 1.5rem;
+
 // Высота контента представления с учетом общей высоты, заголовка и отступов
-$height--layout__content: calc(100vh - 2.25rem - (var(--space-4) * 4));
+$height--layout__content: calc(100vh - 2.25rem - 2.5rem - (var(--space-4) * 4));

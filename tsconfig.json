@@ -37,7 +37,8 @@
       "@consts/*": ["consts/*"],
       "@consts": ["consts"],
       "@services/*": ["services/*"],
-      "@store/*": ["store/*"],
+      "@stores/*": ["stores/*"],
+      "@stores": ["stores"],
       "@types":  ["types"],
       "@utils/*": ["utils/*"]
     }

@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: $height--pagination;
+  margin-top: var(--space-4);
+}
+
+.pagination__page {
+  display: flex;
+  justify-content: center;
+  width: $width--page;
+
+  color: var(--primary-500);
+  font-size: $fs-md;
+  line-height: $lh-md;
+  font-weight: 600;
+}

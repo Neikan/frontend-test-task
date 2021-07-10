@@ -1,0 +1,5 @@
+export * from './IconArrowBack'
+export * from './IconArrowBackDouble'
+export * from './IconArrowNext'
+export * from './IconArrowNextDouble'
+export * from './IconFavorite'

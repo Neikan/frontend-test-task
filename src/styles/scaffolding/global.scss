@@ -19,7 +19,7 @@ body {
   font-family: $font-main;
   font-size: $fs-base;
   font-weight: normal;
-  line-height: 1.25rem;
+  line-height: $lh-base;
 
   overflow: hidden;
 }

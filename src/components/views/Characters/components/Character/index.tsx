@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 
 import { CharacterStatusClass } from '@consts/common'
 
-import { ButtonToFavorite } from '@components/common'
+import { ButtonToFavorite } from '@components/common/buttons'
 import { CharacterDescription } from './components/CharacterDescription'
 
 import { ICharacterProps as IProps } from './types'

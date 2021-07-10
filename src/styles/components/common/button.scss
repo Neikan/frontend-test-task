@@ -13,24 +13,23 @@
   user-select: none;
 }
 
-.button:hover svg,
-.button:focus svg {
-  fill: var(--primary-200);
+.button:not(.button--disabled):hover svg,
+.button:not(.button--disabled):focus svg {
+  fill: var(--primary-400);
 }
 
-.button:active svg {
-  fill: var(--primary-400);
+.button:not(.button--disabled):active svg {
+  fill: var(--primary-600);
 }
 
 .button--active svg {
   fill: var(--primary-500);
 }
 
-.button__toFavorite {
-  display: block;
-  width: $width--character__toFavorite;
-  height: $width--character__toFavorite;
+.button--disabled {
+  cursor: not-allowed;
 
-  border-color: var(--primary-500);
-  stroke: var(--primary-500);
+  svg {
+    fill: var(--gray-200);
+  }
 }

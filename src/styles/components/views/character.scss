@@ -11,7 +11,7 @@
 .character__info--first {
   @extend .grid--space_4;
 
-  grid-template-columns: 1fr $width--character__toFavorite;
+  grid-template-columns: 1fr $width--icon;
   align-items: center;
   margin-bottom: var(--space-4);
 }
@@ -44,8 +44,8 @@
 }
 
 .character__description--title {
-  font-size: $fs-sm;
   color: var(--gray-500);
+  font-size: $fs-sm;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
