@@ -1,0 +1,15 @@
+# OS files and folders
+.DS_Store
+Thumbs.db
+
+# Redactor files
+.idea
+.vscode
+*.sublime*
+
+# Additional files and folders
+*.log*
+.husky
+coverage/
+node_modules/
+dist/
