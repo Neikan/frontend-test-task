@@ -48,12 +48,21 @@ export const Characters = observer(class Characters extends Component<{}, IState
     return (
       <>
         <LayoutTitle title='Characters' />
+
         <LayoutContent>
           <section className='characters'>
             <CharactersList characters={characters} />
           </section>
         </LayoutContent>
-        <Pagination allPages={34} pageNumber={1} />
+
+        <Pagination
+          allPages={store.allPages}
+          pageNumber={store.pageNumber}
+          onGetFirstPage={store.getFirstPage}
+          onGetBackPage={store.getBackPage}
+          onGetNextPage={store.getNextPage}
+          onGetLastPage={store.getLastPage}
+        />
       </>
     )
   }

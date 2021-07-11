@@ -3,30 +3,26 @@ import { observer } from 'mobx-react'
 
 import { Button, IconArrowBack, IconArrowBackDouble, IconArrowNext, IconArrowNextDouble } from '@components/common'
 
-import { paginationStore } from '@stores'
-
 import { IPaginationProps as IProps } from './types'
 
-const { allPages, pageNumber, getFirstPage, getBackPage, getNextPage, getLastPage } = paginationStore()
-
-export const Pagination: FC<IProps> = observer(() => {
+export const Pagination: FC<IProps> = observer(({ allPages, pageNumber, onGetFirstPage, onGetBackPage, onGetNextPage, onGetLastPage }) => {
   const isDisabledPrevButton = pageNumber === 1
   const isDisabledNextButton = pageNumber === allPages
 
   return (
     <div className='pagination'>
-      <Button isDisabled={isDisabledPrevButton} onClick={getFirstPage}>
+      <Button isDisabled={isDisabledPrevButton} onClick={onGetFirstPage}>
         <IconArrowBackDouble />
       </Button>
-      <Button isDisabled={isDisabledPrevButton} onClick={getBackPage}>
+      <Button isDisabled={isDisabledPrevButton} onClick={onGetBackPage}>
         <IconArrowBack />
       </Button>
-      {/* заменить на инпут */}
+      {/* // ToDo заменить на инпут */}
       <span className='pagination__page'>{pageNumber}</span>
-      <Button isDisabled={isDisabledNextButton} onClick={getNextPage}>
+      <Button isDisabled={isDisabledNextButton} onClick={onGetNextPage}>
         <IconArrowNext />
       </Button>
-      <Button isDisabled={isDisabledNextButton} onClick={getLastPage}>
+      <Button isDisabled={isDisabledNextButton} onClick={onGetLastPage}>
         <IconArrowNextDouble />
       </Button>
     </div>
