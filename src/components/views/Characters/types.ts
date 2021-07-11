@@ -40,7 +40,3 @@ export interface ICharacter {
   // Time at which the character was created in the database
   created: string
 }
-
-export interface ICharactersState {
-  characters: ICharacter[]
-}
