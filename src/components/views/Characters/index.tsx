@@ -20,6 +20,7 @@ const paginationStore = PaginationStore()
 export const Characters: FC = () => {
   const { getCharacters } = useCharactersStore().charactersStore
   const [characters, setCharacters] = useState<ICharacter[]>([])
+  const [count, setCount] = useState<number>(0)
 
   const handleGetCharacters = (config?: AxiosRequestConfig): void => {
     getCharacters(config)
@@ -30,22 +31,46 @@ export const Characters: FC = () => {
           runInAction(() => {
             paginationStore.allPages = data.info.pages
           })
+
+          setCount(1)
         }
       })
       .catch(handleCatchAxiosError)
   }
 
   useEffect(() => {
-    runInAction(() => handleGetCharacters({ params: { page: paginationStore.pageNumber } }))
+    if (count === 0) {
+      runInAction(() => handleGetCharacters({ params: { page: paginationStore.pageNumber } }))
+    }
   })
 
   const isPagination = paginationStore.allPages !== START_PAGE
+
+  const goToFirstPage = (): void => {
+    setCount(0)
+    paginationStore.getFirstPage()
+  }
+
+  const goToBackPage = (): void => {
+    setCount(0)
+    paginationStore.getBackPage()
+  }
+
+  const goToNextPage = (): void => {
+    setCount(0)
+    paginationStore.getNextPage()
+  }
+
+  const goToLastPage = (): void => {
+    setCount(0)
+    paginationStore.getLastPage()
+  }
 
   return (
     <>
       <LayoutTitle title='Characters' />
 
-      {
+      {characters.length ? (
         <>
           <LayoutContent withPagination={isPagination}>
             <section className='characters'>
@@ -57,14 +82,14 @@ export const Characters: FC = () => {
             <Pagination
               allPages={paginationStore.allPages}
               pageNumber={paginationStore.pageNumber}
-              onGetFirstPage={paginationStore.getFirstPage}
-              onGetBackPage={paginationStore.getBackPage}
-              onGetNextPage={paginationStore.getNextPage}
-              onGetLastPage={paginationStore.getLastPage}
+              onGetFirstPage={goToFirstPage}
+              onGetBackPage={goToBackPage}
+              onGetNextPage={goToNextPage}
+              onGetLastPage={goToLastPage}
             />
           ) : null}
         </>
-      }
+      ) : null}
     </>
   )
 }
