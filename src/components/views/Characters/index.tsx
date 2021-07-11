@@ -48,6 +48,7 @@ export const Characters: FC = () => {
   const isPagination = paginationStore.allPages !== START_PAGE
 
   const goToFirstPage = (): void => {
+    // ToDo кажется, вместо установки каждый раз в подобных местах, можно также завести стор для общего использования параметра
     setLoaded(false)
     getFirstPage()
   }
@@ -74,9 +75,7 @@ export const Characters: FC = () => {
       {characters.length ? (
         <>
           <LayoutContent withPagination={isPagination}>
-            <section className='characters'>
-              <CharactersList characters={characters} />
-            </section>
+            <CharactersList />
           </LayoutContent>
 
           {isPagination ? (

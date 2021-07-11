@@ -1,13 +1,16 @@
+import { useCharactersStore } from '@contexts/characters'
 import React, { FC } from 'react'
 
 import { Character } from '../Character'
 
-import { ICharactersListProps as IProps } from './types'
+export const CharactersList: FC = () => {
+  const { characters } = useCharactersStore().charactersStore
 
-export const CharactersList: FC<IProps> = ({ characters }) => {
   return (
-    <ul className='characters__list'>
-      {characters.length ? characters.map((character) => <Character key={character.id} character={character} />) : null}
-    </ul>
+    <section className='characters'>
+      <ul className='characters__list'>
+        {characters.length ? characters.map((character) => <Character key={character.id} character={character} />) : null}
+      </ul>
+    </section>
   )
 }
