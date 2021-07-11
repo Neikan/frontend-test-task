@@ -6,19 +6,20 @@ import { ResponseCode, START_PAGE } from '@consts/common'
 
 import { handleCatchAxiosError } from '@utils/common'
 
-import { PaginationStore } from '@stores/pagination'
-
 import { useCharactersStore } from '@contexts/characters'
 
 import { LayoutContent, LayoutTitle, Pagination } from '@components/common'
 import { CharactersList } from './components/CharactersList'
 
 import { ICharacter } from './types'
-
-const paginationStore = PaginationStore()
+import { usePaginationStore } from '@contexts/pagination'
 
 export const Characters: FC = () => {
   const { getCharacters } = useCharactersStore().charactersStore
+
+  const { paginationStore } = usePaginationStore()
+  const { getBackPage, getFirstPage, getLastPage, getNextPage } = paginationStore
+
   const [characters, setCharacters] = useState<ICharacter[]>([])
   const [count, setCount] = useState<number>(0)
 
@@ -40,7 +41,7 @@ export const Characters: FC = () => {
 
   useEffect(() => {
     if (count === 0) {
-      runInAction(() => handleGetCharacters({ params: { page: paginationStore.pageNumber } }))
+      handleGetCharacters({ params: { page: paginationStore.pageNumber } })
     }
   })
 
@@ -48,22 +49,22 @@ export const Characters: FC = () => {
 
   const goToFirstPage = (): void => {
     setCount(0)
-    paginationStore.getFirstPage()
+    getFirstPage()
   }
 
   const goToBackPage = (): void => {
     setCount(0)
-    paginationStore.getBackPage()
+    getBackPage()
   }
 
   const goToNextPage = (): void => {
     setCount(0)
-    paginationStore.getNextPage()
+    getNextPage()
   }
 
   const goToLastPage = (): void => {
     setCount(0)
-    paginationStore.getLastPage()
+    getLastPage()
   }
 
   return (
