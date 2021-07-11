@@ -21,7 +21,7 @@ export const Characters: FC = () => {
   const { getBackPage, getFirstPage, getLastPage, getNextPage } = paginationStore
 
   const [characters, setCharacters] = useState<ICharacter[]>([])
-  const [count, setCount] = useState<number>(0)
+  const [isLoaded, setLoaded] = useState<boolean>(false)
 
   const handleGetCharacters = (config?: AxiosRequestConfig): void => {
     getCharacters(config)
@@ -33,14 +33,14 @@ export const Characters: FC = () => {
             paginationStore.allPages = data.info.pages
           })
 
-          setCount(1)
+          setLoaded(true)
         }
       })
       .catch(handleCatchAxiosError)
   }
 
   useEffect(() => {
-    if (count === 0) {
+    if (!isLoaded) {
       handleGetCharacters({ params: { page: paginationStore.pageNumber } })
     }
   })
@@ -48,22 +48,22 @@ export const Characters: FC = () => {
   const isPagination = paginationStore.allPages !== START_PAGE
 
   const goToFirstPage = (): void => {
-    setCount(0)
+    setLoaded(false)
     getFirstPage()
   }
 
   const goToBackPage = (): void => {
-    setCount(0)
+    setLoaded(false)
     getBackPage()
   }
 
   const goToNextPage = (): void => {
-    setCount(0)
+    setLoaded(false)
     getNextPage()
   }
 
   const goToLastPage = (): void => {
-    setCount(0)
+    setLoaded(false)
     getLastPage()
   }
 
