@@ -1,5 +1,5 @@
 import React, { Component, ReactElement } from 'react'
-import { AxiosError, AxiosResponse } from 'axios'
+import { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { observer } from 'mobx-react'
 import { runInAction } from 'mobx'
 
@@ -28,18 +28,15 @@ export const Characters = observer(class Characters extends Component<{}, IState
   }
 
   public componentDidMount (): void {
-    charactersService
-      .getCharacters()
-      .then(({ data, status }: AxiosResponse) => {
-        if (status === ResponseCode.GET) {
-          this.setState({ characters: data.results })
+    const params = { page: store.pageNumber }
 
-          runInAction(() => {
-            store.allPages = data.info.pages
-          })
-        }
-      })
-      .catch(this.handleCatchError)
+    this.handleGetCharacters({ params })
+  }
+
+  public componentDidUpdate (): void {
+    const params = { page: store.pageNumber }
+
+    this.handleGetCharacters({ params })
   }
 
   public render (): ReactElement {
@@ -65,6 +62,21 @@ export const Characters = observer(class Characters extends Component<{}, IState
         />
       </>
     )
+  }
+
+  public readonly handleGetCharacters = (config?: AxiosRequestConfig): void => {
+    charactersService
+      .getCharacters(config)
+      .then(({ data, status }: AxiosResponse) => {
+        if (status === ResponseCode.GET) {
+          this.setState({ characters: data.results })
+
+          runInAction(() => {
+            store.allPages = data.info.pages
+          })
+        }
+      })
+      .catch(this.handleCatchError)
   }
 
   private readonly handleCatchError = (err: AxiosError): void => {
