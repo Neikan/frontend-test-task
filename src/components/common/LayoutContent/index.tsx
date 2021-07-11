@@ -8,7 +8,12 @@ import { IContentProps as IProps } from './types'
 
 const isFireFox = detect()?.name === Browser.FIREFOX
 
-export const LayoutContent: FC<IProps> = ({ children, classes = '', isScrollable = true, withPagination = true }: IProps) => {
+export const LayoutContent: FC<IProps> = ({
+  children,
+  classes = '',
+  isScrollable = true,
+  withPagination = true
+}: IProps) => {
   const getClasses = (classes: string): string =>
     cn(
       'layout__content',

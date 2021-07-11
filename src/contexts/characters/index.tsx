@@ -9,11 +9,7 @@ const charactersStore = new CharactersStore()
 const CharactersContext = createContext<IContext>({ charactersStore })
 
 export const CharactersProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
-  return (
-    <CharactersContext.Provider value={{ charactersStore }}>
-      {children}
-    </CharactersContext.Provider>
-  )
+  return <CharactersContext.Provider value={{ charactersStore }}>{children}</CharactersContext.Provider>
 }
 
 export const useCharactersStore = (): IContext => useContext(CharactersContext)

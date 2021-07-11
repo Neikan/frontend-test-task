@@ -22,17 +22,17 @@ export const Characters: FC = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([])
 
   const handleGetCharacters = (config?: AxiosRequestConfig): void => {
-      getCharacters(config)
-        .then(({ data, status }: AxiosResponse) => {
-          if (status === ResponseCode.GET) {
-            setCharacters(data.results)
+    getCharacters(config)
+      .then(({ data, status }: AxiosResponse) => {
+        if (status === ResponseCode.GET) {
+          setCharacters(data.results)
 
-            runInAction(() => {
-              paginationStore.allPages = data.info.pages
-            })
-          }
-        })
-        .catch(handleCatchAxiosError)
+          runInAction(() => {
+            paginationStore.allPages = data.info.pages
+          })
+        }
+      })
+      .catch(handleCatchAxiosError)
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const Characters: FC = () => {
     <>
       <LayoutTitle title='Characters' />
 
-      {(
+      {
         <>
           <LayoutContent withPagination={isPagination}>
             <section className='characters'>
@@ -61,8 +61,9 @@ export const Characters: FC = () => {
               onGetBackPage={paginationStore.getBackPage}
               onGetNextPage={paginationStore.getNextPage}
               onGetLastPage={paginationStore.getLastPage}
-            /> ) : null}
-        </> )
+            />
+          ) : null}
+        </>
       }
     </>
   )
