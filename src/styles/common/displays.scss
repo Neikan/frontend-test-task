@@ -1,11 +1,22 @@
-.grid--space_4 {
+.grid--R4 {
+  display: grid;
+  grid-row-gap: var(--space-4);
+}
+
+.grid--gapCR4 {
   display: grid;
   grid-column-gap: var(--space-4);
   grid-row-gap: var(--space-4);
 }
 
-.grid--space_6 {
+.grid--gapCR6 {
   display: grid;
   grid-column-gap: var(--space-6);
   grid-row-gap: var(--space-6);
+}
+
+.grid--gapC6R4 {
+  display: grid;
+  grid-column-gap: var(--space-6);
+  grid-row-gap: var(--space-4);
 }

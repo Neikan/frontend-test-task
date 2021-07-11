@@ -5,7 +5,7 @@ import { runInAction } from 'mobx'
 
 import charactersService from '@services/characters'
 
-import { ResponseCode } from '@consts/common'
+import { ResponseCode, START_PAGE } from '@consts/common'
 
 import { handleCatchAxiosError } from '@utils/common'
 
@@ -37,26 +37,29 @@ export const Characters: FC = observer(() => {
 
   handleGetCharacters({ params: { page: store.pageNumber } })
 
+  const isPagination = store.allPages !== START_PAGE
+
   return (
     <>
       <LayoutTitle title='Characters' />
 
       {characters.length ? (
         <>
-          <LayoutContent>
+          <LayoutContent withPagination={isPagination}>
             <section className='characters'>
               <CharactersList characters={characters} />
             </section>
           </LayoutContent>
 
-          <Pagination
-            allPages={store.allPages}
-            pageNumber={store.pageNumber}
-            onGetFirstPage={store.getFirstPage}
-            onGetBackPage={store.getBackPage}
-            onGetNextPage={store.getNextPage}
-            onGetLastPage={store.getLastPage}
-          />
+          {isPagination ? (
+            <Pagination
+              allPages={store.allPages}
+              pageNumber={store.pageNumber}
+              onGetFirstPage={store.getFirstPage}
+              onGetBackPage={store.getBackPage}
+              onGetNextPage={store.getNextPage}
+              onGetLastPage={store.getLastPage}
+            /> ) : null}
         </> ) : null
       }
     </>

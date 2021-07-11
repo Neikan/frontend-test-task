@@ -1,11 +1,14 @@
 import { makeObservable, observable, action } from 'mobx'
+
+import { START_PAGE } from '@consts/common'
+
 import { IPaginationStore } from './types'
 
 export const paginationStore = (): IPaginationStore => {
   return makeObservable(
     {
-      allPages: 1,
-      pageNumber: 1,
+      allPages: START_PAGE,
+      pageNumber: START_PAGE,
 
       getFirstPage () {
         this.pageNumber = 1

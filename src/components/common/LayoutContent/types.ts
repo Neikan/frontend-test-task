@@ -8,4 +8,10 @@ export interface IContentProps {
    * По умолчанию - true
    */
   isScrollable?: boolean
+
+  /**
+   * Параметр необходим для случаев, если пагинации контента нет
+   * По умолчанию - true
+   */
+  withPagination?: boolean
 }

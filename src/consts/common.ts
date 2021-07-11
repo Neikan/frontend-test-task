@@ -14,6 +14,8 @@ export const Chars = {
   QUESTIONS: '???'
 }
 
+export const START_PAGE = 1
+
 export const UNKNOWN_VALUE = 'unknown'
 
 export const CharacterStatusClass = {

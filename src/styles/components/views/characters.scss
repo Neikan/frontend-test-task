@@ -1,6 +1,6 @@
 .characters__list {
   @extend .lisn;
-  @extend .grid--space_6;
+  @extend .grid--gapCR6;
 
   grid-template-columns: repeat(auto-fill, minmax($width--character, 1fr));
   margin: 0;

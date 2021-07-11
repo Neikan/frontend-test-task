@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
 import { observer } from 'mobx-react'
 
+import { START_PAGE } from '@consts/common'
+
 import { Button, IconArrowBack, IconArrowBackDouble, IconArrowNext, IconArrowNextDouble } from '@components/common'
 
 import { IPaginationProps as IProps } from './types'
 
 export const Pagination: FC<IProps> = observer(({ allPages, pageNumber, onGetFirstPage, onGetBackPage, onGetNextPage, onGetLastPage }) => {
-  const isDisabledPrevButton = pageNumber === 1
+  const isDisabledPrevButton = pageNumber === START_PAGE
   const isDisabledNextButton = pageNumber === allPages
 
   return (

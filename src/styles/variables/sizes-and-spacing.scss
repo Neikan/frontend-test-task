@@ -24,4 +24,7 @@ $height--layout__title: 2.25rem;
 $height--pagination: 1.5rem;
 
 // Высота контента представления с учетом общей высоты, заголовка и отступов
-$height--layout__content: calc(100vh - 2.25rem - 2.5rem - (var(--space-4) * 4));
+$height--layout__content--notPagination: calc(100vh - 2.25rem - (var(--space-4) * 4));
+
+// Высота контента представления с учетом общей высоты, заголовка отступов и пагинации
+$height--layout__content--pagination: calc(100vh - 2.25rem - 2.5rem - (var(--space-4) * 4));

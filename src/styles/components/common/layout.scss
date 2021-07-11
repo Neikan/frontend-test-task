@@ -28,13 +28,20 @@
 
 .layout__content {
   position: relative;
-  height: $height--layout__content;
 
   padding-top: var(--space-4);
   padding-left: var(--space-4);
 
   overflow-x: hidden;
   overflow-y: scroll;
+}
+
+.layout__content--pagination {
+  height: $height--layout__content--pagination;
+}
+
+.layout__content--notPagination {
+  height: $height--layout__content--notPagination;
 }
 
 .layout__content--firefox {
