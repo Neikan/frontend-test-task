@@ -30,14 +30,18 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "isolatedModules": false,
+    "experimentalDecorators": true,
     "typeRoots": [ "./src/types", "./node_modules/@types"],
     "paths": {
       "@components/*": ["components/*"],
       "@components": ["components"],
       "@consts/*": ["consts/*"],
       "@consts": ["consts"],
+      "@contexts/*": ["contexts/*"],
+      "@contexts": ["contexts"],
       "@services/*": ["services/*"],
-      "@store/*": ["store/*"],
+      "@stores/*": ["stores/*"],
+      "@stores": ["stores"],
       "@types":  ["types"],
       "@utils/*": ["utils/*"]
     }

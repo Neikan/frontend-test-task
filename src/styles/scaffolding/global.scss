@@ -1,0 +1,51 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: $wm;
+  margin: 0;
+  padding: 0;
+
+  background-color: var(--body-color);
+  color: var(--text-color);
+
+  font-family: $font-main;
+  font-size: $fs-base;
+  font-weight: normal;
+  line-height: $lh-base;
+
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+:root {
+  --module: #{$module};
+
+  --space-1: #{$space-1};
+  --space-2: #{$space-2};
+  --space-3: #{$space-3};
+  --space-4: #{$space-4};
+  --space-5: #{$space-5};
+  --space-6: #{$space-6};
+
+  --transition-time-base: #{$transition-time-base};
+}

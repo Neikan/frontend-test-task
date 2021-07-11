@@ -1,9 +1,16 @@
-import React, { FC, Suspense } from 'react'
+import React, { FC } from 'react'
+
+import { Layout } from '@components/common'
+import { Characters } from '@components/views'
+
+import { RootStoreProvider } from '@contexts'
 
 const App: FC = () => (
-  <Suspense fallback={null}>
-    <div>Здесь будут данные</div>
-  </Suspense>
+  <RootStoreProvider>
+    <Layout>
+      <Characters />
+    </Layout>
+  </RootStoreProvider>
 )
 
 export default App

@@ -5,8 +5,9 @@ const defaultPath = path.resolve(__dirname, '../../src');
 const paths = {
   '@components': path.resolve(defaultPath, 'components')  ,
   '@consts': path.resolve(defaultPath, 'consts'),
+  '@contexts': path.resolve(defaultPath, 'contexts'),
   '@services': path.resolve(defaultPath, 'services'),
-  '@store': path.resolve(defaultPath, 'store'),
+  '@stores': path.resolve(defaultPath, 'stores'),
   '@types': path.resolve(defaultPath, 'types'),
   '@utils': path.resolve(defaultPath, 'utils')
 };

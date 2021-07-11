@@ -1,0 +1,26 @@
+@import "../mixins/scrollbar";
+
+.lisn {
+  list-style: none;
+  padding-left: 0;
+}
+
+.tapNone {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.outlineNone {
+  outline: none;
+}
+
+@include make-scrollbar(
+    "layout__content--scrollbar",
+    $width--content__scrollbar,
+    $border--radius__base,
+    transparent,
+    transparent,
+    var(--primary-400),
+    var(--primary-500),
+    var(--primary-400),
+    var(--primary-500)
+);
