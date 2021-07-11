@@ -18,7 +18,7 @@ export const Characters: FC = () => {
   const { getCharacters } = useCharactersStore().charactersStore
 
   const { paginationStore } = usePaginationStore()
-  const { getBackPage, getFirstPage, getLastPage, getNextPage } = paginationStore
+  const { getBackPage, getFirstPage, getLastPage, getNextPage, pageNumber } = paginationStore
 
   const [characters, setCharacters] = useState<ICharacter[]>([])
   const [isLoaded, setLoaded] = useState<boolean>(false)
@@ -41,7 +41,7 @@ export const Characters: FC = () => {
 
   useEffect(() => {
     if (!isLoaded) {
-      handleGetCharacters({ params: { page: paginationStore.pageNumber } })
+      handleGetCharacters({ params: { page: pageNumber } })
     }
   })
 
@@ -82,7 +82,7 @@ export const Characters: FC = () => {
           {isPagination ? (
             <Pagination
               allPages={paginationStore.allPages}
-              pageNumber={paginationStore.pageNumber}
+              pageNumber={pageNumber}
               onGetFirstPage={goToFirstPage}
               onGetBackPage={goToBackPage}
               onGetNextPage={goToNextPage}
