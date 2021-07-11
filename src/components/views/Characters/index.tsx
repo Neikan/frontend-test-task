@@ -7,12 +7,12 @@ import { ResponseCode, START_PAGE } from '@consts/common'
 import { handleCatchAxiosError } from '@utils/common'
 
 import { useCharactersStore } from '@contexts/characters'
+import { usePaginationStore } from '@contexts/pagination'
 
 import { LayoutContent, LayoutTitle, Pagination } from '@components/common'
 import { CharactersList } from './components/CharactersList'
 
 import { ICharacter } from './types'
-import { usePaginationStore } from '@contexts/pagination'
 
 export const Characters: FC = () => {
   const { getCharacters } = useCharactersStore().charactersStore

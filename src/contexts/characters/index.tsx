@@ -4,7 +4,9 @@ import { CharactersStore } from '@stores/characters'
 
 import { ICharactersContext as IContext } from './types'
 
-const charactersStore = new CharactersStore()
+import { RootStore } from '@stores'
+
+const charactersStore = new CharactersStore(new RootStore())
 
 const CharactersContext = createContext<IContext>({ charactersStore })
 

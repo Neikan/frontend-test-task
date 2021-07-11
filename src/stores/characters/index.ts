@@ -5,9 +5,17 @@ import charactersService from '@services/characters'
 
 import { ResponseCode } from '@consts/common'
 
+import { RootStore } from '@stores'
+
 import { ICharacter } from '@components/views/Characters/types'
 
 export class CharactersStore {
+  rootStore: RootStore
+
+  constructor (rootStore: RootStore) {
+    this.rootStore = rootStore
+  }
+
   @observable
   characters: ICharacter[] = []
 

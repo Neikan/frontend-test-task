@@ -38,6 +38,7 @@
       "@consts/*": ["consts/*"],
       "@consts": ["consts"],
       "@contexts/*": ["contexts/*"],
+      "@contexts": ["contexts"],
       "@services/*": ["services/*"],
       "@stores/*": ["stores/*"],
       "@stores": ["stores"],
