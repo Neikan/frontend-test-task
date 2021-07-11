@@ -4,7 +4,7 @@ import { START_PAGE } from '@consts/common'
 
 import { IPaginationStore } from './types'
 
-export const paginationStore = (): IPaginationStore => {
+export const PaginationStore = (): IPaginationStore => {
   return makeObservable(
     {
       allPages: START_PAGE,

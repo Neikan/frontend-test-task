@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 
-import { Button } from '@components/common'
-import { IconFavorite } from '@components/common/icons'
+import { Button, IconFavorite } from '@components/common'
 
 import { IButtonAddToFavoriteProps as IProps } from './types'
 

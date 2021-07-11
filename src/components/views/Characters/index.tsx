@@ -1,49 +1,51 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { AxiosRequestConfig, AxiosResponse } from 'axios'
-import { observer } from 'mobx-react'
 import { runInAction } from 'mobx'
-
-import charactersService from '@services/characters'
 
 import { ResponseCode, START_PAGE } from '@consts/common'
 
 import { handleCatchAxiosError } from '@utils/common'
 
-import { paginationStore } from '@stores'
+import { PaginationStore } from '@stores/pagination'
+
+import { useCharactersStore } from '@contexts/characters'
 
 import { LayoutContent, LayoutTitle, Pagination } from '@components/common'
 import { CharactersList } from './components/CharactersList'
+
 import { ICharacter } from './types'
 
-const store = paginationStore()
+const paginationStore = PaginationStore()
 
-export const Characters: FC = observer(() => {
+export const Characters: FC = () => {
+  const { getCharacters } = useCharactersStore().charactersStore
   const [characters, setCharacters] = useState<ICharacter[]>([])
 
   const handleGetCharacters = (config?: AxiosRequestConfig): void => {
-    charactersService
-      .getCharacters(config)
-      .then(({ data, status }: AxiosResponse) => {
-        if (status === ResponseCode.GET) {
-          setCharacters(data.results)
+      getCharacters(config)
+        .then(({ data, status }: AxiosResponse) => {
+          if (status === ResponseCode.GET) {
+            setCharacters(data.results)
 
-          runInAction(() => {
-            store.allPages = data.info.pages
-          })
-        }
-      })
-      .catch(handleCatchAxiosError)
+            runInAction(() => {
+              paginationStore.allPages = data.info.pages
+            })
+          }
+        })
+        .catch(handleCatchAxiosError)
   }
 
-  handleGetCharacters({ params: { page: store.pageNumber } })
+  useEffect(() => {
+    runInAction(() => handleGetCharacters({ params: { page: paginationStore.pageNumber } }))
+  })
 
-  const isPagination = store.allPages !== START_PAGE
+  const isPagination = paginationStore.allPages !== START_PAGE
 
   return (
     <>
       <LayoutTitle title='Characters' />
 
-      {characters.length ? (
+      {(
         <>
           <LayoutContent withPagination={isPagination}>
             <section className='characters'>
@@ -53,15 +55,15 @@ export const Characters: FC = observer(() => {
 
           {isPagination ? (
             <Pagination
-              allPages={store.allPages}
-              pageNumber={store.pageNumber}
-              onGetFirstPage={store.getFirstPage}
-              onGetBackPage={store.getBackPage}
-              onGetNextPage={store.getNextPage}
-              onGetLastPage={store.getLastPage}
+              allPages={paginationStore.allPages}
+              pageNumber={paginationStore.pageNumber}
+              onGetFirstPage={paginationStore.getFirstPage}
+              onGetBackPage={paginationStore.getBackPage}
+              onGetNextPage={paginationStore.getNextPage}
+              onGetLastPage={paginationStore.getLastPage}
             /> ) : null}
-        </> ) : null
+        </> )
       }
     </>
   )
-})
+}
