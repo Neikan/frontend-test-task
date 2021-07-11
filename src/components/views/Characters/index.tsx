@@ -12,7 +12,7 @@ import { usePaginationStore } from '@contexts/pagination'
 import { LayoutContent, LayoutTitle, Pagination } from '@components/common'
 import { CharactersList } from './components/CharactersList'
 
-import { ICharacter } from './types'
+import { ICharacter } from '@stores/characters/types'
 
 export const Characters: FC = () => {
   const { getCharacters } = useCharactersStore().charactersStore

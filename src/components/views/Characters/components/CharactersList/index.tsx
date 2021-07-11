@@ -9,7 +9,9 @@ export const CharactersList: FC = () => {
   return (
     <section className='characters'>
       <ul className='characters__list'>
-        {characters.length ? characters.map((character) => <Character key={character.id} character={character} />) : null}
+        {characters.length
+          ? characters.map((character) => <Character key={character.id} character={character} />)
+          : null}
       </ul>
     </section>
   )

@@ -1,4 +1,4 @@
-import { ICharacter } from '@components/views/Characters/types'
+import { ICharacter } from '@stores/characters/types'
 
 export interface ICharacterProps {
   character: ICharacter

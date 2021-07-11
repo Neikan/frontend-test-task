@@ -1,5 +1,5 @@
-import { ICharacter } from '@components/views/Characters/types'
 import { Nullable } from '@types'
+import { ICharacter } from '@stores/characters/types'
 
 export interface IGettedCharactersData {
   info: {

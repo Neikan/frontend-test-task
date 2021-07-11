@@ -7,7 +7,7 @@ import { ResponseCode } from '@consts/common'
 
 import { RootStore } from '@stores'
 
-import { ICharacter } from '@components/views/Characters/types'
+import { ICharacter } from './types'
 
 export class CharactersStore {
   rootStore: RootStore
