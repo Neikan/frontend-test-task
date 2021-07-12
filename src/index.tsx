@@ -13,4 +13,4 @@ const init = (): void => {
 
 init()
 
-serviceWorkerRegistration.register()
+serviceWorkerRegistration.unregister()
